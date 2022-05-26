@@ -84,7 +84,7 @@ $(document).ready(function () {
 					htm =
 						'<p>' +
 						resp +
-						'</p><input type="button" value="Restart"  class="resetForm myButton" ></p>';
+						'</p><input type="button" value="Rejouer"  class="resetForm myButton" ></p>';
 
 					$('.submitForm').hide();
 					$('.submitFormResponse').html(htm);
@@ -97,7 +97,7 @@ $(document).ready(function () {
 				},
 			});
 		} else {
-			alert('Please fill the details');
+			alert('Veuillez remplir les champs obligatoires');
 		}
 		event.preventDefault();
 	});
