@@ -7,20 +7,20 @@ if (is_ajax()) {
   	$sql="INSERT INTO score (id, fullname, email, score, appid) VALUES ( DEFAULT,'".$_POST["fullname"]."','".$_POST["email"]."','".$_POST["score"]."','".$_POST["appid"]."')";
   	//echo $quer;
   	mysqli_query($conn, $sql);
-  	$rankQ = "SELECT id, fullname, score, FIND_IN_SET( score, (    
-  		SELECT GROUP_CONCAT( score
-			ORDER BY score DESC ) 
-			FROM score )
-			) AS rank
-			FROM score
-			WHERE score =  '".$_POST["score"]."' and email ='".$_POST["email"]."' limit 1";
-			// $mysqli_result = mysqli_query($conn, $rankQ );
-			// $rankResRow = mysqli_fetch_assoc($mysqli_result );
-			echo "Merci d'avoir soumis votre score!";
+  	$rankQ = "SELECT * FROM score WHERE appid = '".$_POST["appid"]."' ORDER BY score DESC";
+
+		
+		$rank = mysqli_query($conn, $rankQ);
+		$rankCount = mysqli_num_rows($rank);
+		
+		echo "Merci d'avoir soumis votre score <b>".$_POST["fullname"]. "</b> .<br>";
+
+		echo "Votre êtes le <b>".$rankCount."</b>ème sur <b>".$_POST["appid"]."</b> .<br>";
+		echo "Votre score est de <b>".$_POST["score"]."</b> .<br>";
 			
+		
   }
  
-  
 }
 
 

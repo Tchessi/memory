@@ -42,6 +42,7 @@
 	</div>
 	<div class="submitForm">
 		<form type="" method="POST" id="submitScoreForm" action="form.php">
+			<img src="img/confetti.webp" width="150" height="150" alt="">
 			<h2>Bravo!<br />vous avez un score de:<span class="score"></span></h2>
 			<p>Envoyez votre score</p>
 			<p><input type="text" name="fullname" placeholder="Votre Nom"></p>
